@@ -18,7 +18,11 @@ document.getElementById('loginBtn').addEventListener('click', function(){
       if(snap.exists() && snap.val() === true){
         // redirect to control panel
         window.location.href = 'control.html';
-      
+      } else {
+        document.getElementById('msg').textContent = '';
+        alert('هذا الحساب ليس مشرفا');
+        auth.signOut();
+      }
     }).catch(function(err){
       console.error(err);
       alert('خطأ في قراءة بيانات المشرفين: ' + err.message);
