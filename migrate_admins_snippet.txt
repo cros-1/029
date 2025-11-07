@@ -1,0 +1,18 @@
+/*
+Migration snippet: run in browser console on a page where firebase is initialized (e.g., index.html)
+It will convert admin keys containing '.' or '@' into safe keys using underscores.
+*/
+(async function(){
+  var db = firebase.database();
+  var snap = await db.ref('admins').once('value');
+  var data = snap.val();
+  if(!data){ console.log('no admins'); return; }
+  for(var oldKey in data){
+    var safe = oldKey.replace(/[.#$\[\]]/g,'_').replace(/@/g,'_');
+    if(oldKey === safe) { console.log('already safe', oldKey); continue; }
+    await db.ref('admins/' + safe).set(data[oldKey]);
+    await db.ref('admins/' + oldKey).remove();
+    console.log('migrated', oldKey, '->', safe);
+  }
+  console.log('done');
+})();

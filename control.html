@@ -1,0 +1,16 @@
+<!doctype html><html lang="ar" dir="rtl"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>لوحة التحكم</title><link rel="stylesheet" href="style.css"></head><body>
+<nav class="navbar"><div class="wrap"><a href="index.html">الرئيسية</a></div></nav>
+<main class="wrap">
+  <h1 class="title3d">لوحة التحكم</h1>
+  <section class="section"><h3>روابط سريعة</h3><input id="linkTitle" placeholder="العنوان"><input id="linkUrl" placeholder="https://"><button id="addLink" class="btn primary">أضف</button><div id="linksList"></div></section>
+  <section class="section"><h3>الإعلانات</h3><input id="adText" placeholder="نص الإعلان"><input type="file" id="adFile"><button id="addAd" class="btn primary">نشر</button><div id="adsList"></div></section>
+  <section class="section"><h3>لوحات الشرف</h3><input id="hTitle" placeholder="العنوان"><input id="hCenter" placeholder="المركز"><input type="file" id="hFile"><button id="addHonor" class="btn primary">أضف</button><div id="honorList"></div></section>
+  <div style="margin-top:18px"><button id="signOut" class="btn">تسجيل خروج</button></div>
+</main>
+<script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-auth.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-database.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-storage.js"></script>
+<script src="firebase-config.js"></script>
+<script src="control.js"></script>
+</body></html>
